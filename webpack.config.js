@@ -14,7 +14,7 @@ module.exports = {
 
     'webpack/hot/only-dev-server',
 
-    'babel-polyfill',
+    '@babel/polyfill',
 
     `${__dirname}/app/index.jsx`,
   ],
@@ -38,9 +38,12 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            options:
-            {
-              presets: ['es2015', 'react', 'stage-0'],
+            options: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                // 'module:@babel/plugin-proposal-function-bind',
+              ],
               env: {
                 development: {
                   plugins: ['react-hot-loader/babel'],
